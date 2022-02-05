@@ -11,23 +11,23 @@ interface PointProps extends ICompany {
 export default function Point(props: PointProps) {
   const { ability, label, vision, handlePointDrag, isDragging, setIsDragging } =
     props;
+
+  if (ability === undefined || vision === undefined) return null;
+
   return (
     <div>
       <PointWrapper
-        xAxis={ability}
-        yAxis={vision}
-        isDragging
+        xAxis={vision}
+        yAxis={ability}
+        isDragging={isDragging}
         opacity={1}
         onDrag={(event) => handlePointDrag(event, props.id)}
         onDragOver={(e) => e.preventDefault()}
-        onDragStart={() => setIsDragging(true)}
-        onDragEnd={(e) => {
-          setIsDragging(false);
-          console.log('e :>> ', e);
-        }}
+        onDragStart={(event) => setIsDragging(true)}
+        onDragEnd={(e) => setIsDragging(false)}
         draggable
       />
-      <Label xAxis={ability} yAxis={vision} opacity={1}>
+      <Label xAxis={vision} yAxis={ability} opacity={1}>
         {label}
       </Label>
     </div>

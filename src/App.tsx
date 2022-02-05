@@ -1,8 +1,10 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useRef, useState, useEffect } from 'react';
 import InnerChart from './components/InnerChart';
 import Layout from './components/Layout';
 import { Flex } from './components/Layout/Layout';
 import Table from './components/Table';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { companyLayer } from './utils';
 
 const { Arrow, ChartColumn, Container, Text, VerticalText } = Layout;
 
@@ -18,15 +20,24 @@ export default function App() {
   const [isDragging, setIsDragging] = useState(false);
   const draggableArea = useRef<HTMLDivElement | null>(null);
 
+  const [savedCompanys, saveCompanys] = useLocalStorage('companys', companys);
+
+  useEffect(() => {
+    if (savedCompanys.length) {
+      setCompanys(savedCompanys);
+    }
+  }, [savedCompanys]);
+
+  useEffect(() => {
+    saveCompanys(companys);
+  }, [companys, saveCompanys]);
+
   function addCompany() {
-    const newCompanys = [
-      ...companys,
-      { id: Date.now(), label: '', vision: 50, ability: 50 },
-    ];
+    const newCompanys = companyLayer.addCompany(companys);
     setCompanys(newCompanys);
   }
   function deleteCompany(id: number) {
-    const newCompanys = companys.filter((company) => company.id !== id);
+    const newCompanys = companyLayer.deleteCompany(companys, id);
     setCompanys(newCompanys);
   }
 
@@ -34,43 +45,16 @@ export default function App() {
     event: ChangeEvent<HTMLInputElement>,
     id: number
   ) {
-    const { name, value } = event.target;
-    const newCompanys = companys.map((company) => {
-      if (company.id === Number(id)) {
-        return { ...company, [name]: value };
-      }
-      return company;
-    });
+    const newCompanys = companyLayer.handleCompanyChange(event, companys, id);
     setCompanys(newCompanys);
   }
 
   function handlePointDrag(event: React.DragEvent<HTMLDivElement>, id: number) {
-    if (!draggableArea.current) return;
+    if (!draggableArea.current) return companys;
 
-    const { clientX, clientY, pageX, pageY } = event;
-    const { left, top } = draggableArea.current.getBoundingClientRect();
-
-    const newCompanys = companys.map((company) => {
-      if (company.id === Number(id)) {
-        const ability =
-          pageX - +(Math.round(clientY - top - 800) / 8).toFixed();
-        const vision = pageY - +Math.round((clientX - left) / 8).toFixed();
-        console.log({
-          ability,
-          vision,
-          pageX,
-          pageY,
-        });
-
-        return {
-          ...company,
-          ability,
-          vision,
-        };
-      }
-      return company;
-    });
-    console.log('newCompanys :>> ', newCompanys);
+    const newCompanys =
+      companyLayer.handlePointDrag(event, companys, id, draggableArea) ||
+      companys;
     setCompanys(newCompanys);
   }
 

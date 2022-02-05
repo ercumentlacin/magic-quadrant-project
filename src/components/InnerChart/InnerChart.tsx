@@ -22,7 +22,11 @@ export default function InnerChart({
   setIsDragging,
 }: InnerChartProps) {
   return (
-    <InnerChartWrapper ref={draggableArea}>
+    <InnerChartWrapper
+      ref={draggableArea}
+      onDragOver={(e) => e.preventDefault()}
+      onDrop={(e) => e.preventDefault()}
+    >
       {INNER_CHARTS.map((label) => (
         <Box label={label} key={label} />
       ))}
