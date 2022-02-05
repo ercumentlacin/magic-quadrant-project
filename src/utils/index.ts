@@ -1,7 +1,7 @@
 import { ChangeEvent, MutableRefObject } from 'react';
 import { ICompany } from '../App';
 
-function adabteRange(number: number) {
+export function adabteRange(number: number) {
   return Math.max(Math.min(number, 100), 2);
 }
 
