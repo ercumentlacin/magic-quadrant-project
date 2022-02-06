@@ -13,3 +13,7 @@ cd magic-quadrant-project
 npm install
 npm start
 ```
+
+## Todo
+- [ ] Add some tests
+- [ ] Change some styles
