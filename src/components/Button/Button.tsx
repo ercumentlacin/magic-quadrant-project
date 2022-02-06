@@ -5,10 +5,17 @@ interface IButtonProps {
   children: ReactNode;
   onClick?: (id?: number) => void;
   id?: number;
+  role?: string;
+  name?: string;
 }
 
-function Button({ children, id, onClick = () => {} }: IButtonProps) {
-  return <SButton onClick={() => onClick(id)}>{children}</SButton>;
+function Button(props: IButtonProps) {
+  const { children, id, onClick = () => {}, ...rest } = props;
+  return (
+    <SButton onClick={() => onClick(id)} {...rest}>
+      {children}
+    </SButton>
+  );
 }
 
 export default memo(Button);

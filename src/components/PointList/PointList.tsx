@@ -30,7 +30,7 @@ export default function PointList({
       <tbody>
         {pointListArr?.map((pointList, index) => {
           return (
-            <tr key={index}>
+            <tr key={index} title='pointList'>
               <td>
                 <input
                   type='text'
