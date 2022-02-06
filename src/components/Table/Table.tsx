@@ -21,7 +21,9 @@ export default function Table({
 }: ITableProps) {
   return (
     <div>
-      <Button onClick={addCompany}>Add</Button>
+      <Button onClick={addCompany} name='Add' role='button'>
+        Add
+      </Button>
       <div>
         <PointList
           pointListArr={companys}

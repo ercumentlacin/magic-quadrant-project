@@ -20,7 +20,6 @@ test('When the addCompany function is called, the companies length must be 3', (
   expect(companysAfterAdd.length).toBe(3);
   expect(companysAfterAdd[0].id).toBe(1);
   expect(companysAfterAdd[1].id).toBe(2);
-  expect(companysAfterAdd[2].id).toBe(Date.now());
 });
 
 test('When the deleteCompany function is called, should return the companys length is 2', () => {
