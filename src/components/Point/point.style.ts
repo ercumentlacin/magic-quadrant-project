@@ -28,7 +28,7 @@ export const PointWrapper = styled.div<PointWrapperProps>`
 `;
 
 export const Label = styled.div<PointLabelProps>`
-  bottom: ${(props) => `calc(${props.yAxis}% + 2rem)`};
+  bottom: ${(props) => `calc(${props.yAxis}% - 2rem)`};
   left: ${(props) => `calc(${props.xAxis}% + 2rem)`};
   opacity: ${(props) => props.opacity};
   position: absolute;

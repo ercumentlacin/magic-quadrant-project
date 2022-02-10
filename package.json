@@ -40,9 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@testing-library/user-event": "^14.0.0-beta",
-    "user-event@^14.0.0-beta": "link:@types/@testing-library/user-event@^14.0.0-beta"
   }
 }

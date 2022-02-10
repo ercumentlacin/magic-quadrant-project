@@ -1,8 +1,7 @@
-import { fireEvent, logRoles, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { ICompany } from '../App';
 import PointList from '../components/PointList';
 
-import userEvent from '@testing-library/user-event';
 import { companyLayer } from '../utils';
 
 const setup = () => {
