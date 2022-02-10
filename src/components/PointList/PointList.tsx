@@ -33,6 +33,8 @@ export default function PointList({
             <tr key={index} title='pointList'>
               <td>
                 <input
+                  data-id='label'
+                  title='pointList.label'
                   type='text'
                   name='label'
                   id='label'

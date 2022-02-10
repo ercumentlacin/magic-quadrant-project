@@ -14,7 +14,7 @@ interface PointLabelProps {
 }
 
 export const PointWrapper = styled.div<PointWrapperProps>`
-  top: ${(props) => `calc(${props.yAxis}% - 1rem)`};
+  bottom: ${(props) => `calc(${props.yAxis}% - 1rem)`};
   left: ${(props) => props.xAxis}%;
   opacity: ${(props) => props.opacity};
   background-color: ${(props) => props.theme.DARK_BLUE};
@@ -28,7 +28,7 @@ export const PointWrapper = styled.div<PointWrapperProps>`
 `;
 
 export const Label = styled.div<PointLabelProps>`
-  top: ${(props) => `calc(${props.yAxis}% + 2rem)`};
+  bottom: ${(props) => `calc(${props.yAxis}% + 2rem)`};
   left: ${(props) => `calc(${props.xAxis}% + 2rem)`};
   opacity: ${(props) => props.opacity};
   position: absolute;

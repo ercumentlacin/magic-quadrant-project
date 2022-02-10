@@ -1,11 +1,11 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+
 import { ICompany } from '../App';
 import Table from '../components/Table';
-import { companyLayer } from '../utils';
 
 let companys: ICompany[] = [
   {
-    label: 'label',
+    label: 'label test value',
     vision: 0,
     ability: 0,
     id: 0,
@@ -14,9 +14,7 @@ let companys: ICompany[] = [
 
 let props = {
   companys,
-  addCompany: jest.fn(() => {
-    companys = companyLayer.addCompany(companys);
-  }),
+  addCompany: jest.fn(),
   deleteCompany: jest.fn(),
   handleCompanyChange: jest.fn(),
 };

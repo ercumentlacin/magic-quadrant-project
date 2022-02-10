@@ -4,7 +4,7 @@ import Box from '../Box';
 import Point from '../Point';
 import { InnerChartWrapper } from './innerChart.style';
 
-const INNER_CHARTS = ['Challengers', 'Leaders', 'Players', 'Visionaries'];
+const INNER_CHARTS = ['Challengers', 'Leaders', 'Niche Players', 'Visionaries'];
 
 interface InnerChartProps {
   companys: ICompany[];
