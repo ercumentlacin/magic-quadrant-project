@@ -3,7 +3,6 @@ lockfileVersion: 5.3
 specifiers:
   '@testing-library/jest-dom': ^5.16.2
   '@testing-library/react': ^12.1.2
-  '@testing-library/user-event': ^14.0.0-beta
   '@types/jest': ^27.4.0
   '@types/node': ^16.11.22
   '@types/react': ^17.0.38
@@ -14,7 +13,6 @@ specifiers:
   react-scripts: 5.0.0
   styled-components: ^5.3.3
   typescript: ^4.5.5
-  user-event@^14.0.0-beta: link:@types/@testing-library/user-event@^14.0.0-beta
   web-vitals: ^2.1.4
 
 dependencies:
@@ -31,10 +29,6 @@ dependencies:
   styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
   typescript: 4.5.5
   web-vitals: 2.1.4
-
-devDependencies:
-  '@testing-library/user-event': 14.0.0-beta.8
-  user-event@^14.0.0-beta: link:@types/@testing-library/user-event@^14.0.0-beta
 
 packages:
 
@@ -1368,6 +1362,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
+    dev: false
 
   /@babel/template/7.16.7:
     resolution: {integrity: sha512-I8j/x8kHUrbYRTUxXrrMbfCa7jxkE7tZre39x3kjr9hvI82cK1FfqLygotcWN5kdPGWcLdWMHpSBavse5tWw3w==}
@@ -2029,15 +2024,6 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: false
-
-  /@testing-library/user-event/14.0.0-beta.8:
-    resolution: {integrity: sha512-aUWaag5b/tB25ykeyp7mi0HK0dLktkxuU4MC3tze8B+gS86xFQ43cba0huykte97mZsxfi47VbuHWeXTmbSkxg==}
-    engines: {node: '>=12', npm: '>=6'}
-    peerDependencies:
-      '@testing-library/dom': '>=7.21.4'
-    dependencies:
-      '@babel/runtime': 7.17.0
-    dev: true
 
   /@tootallnate/once/1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
@@ -7999,6 +7985,7 @@ packages:
 
   /regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
+    dev: false
 
   /regenerator-transform/0.14.5:
     resolution: {integrity: sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==}
