@@ -48,7 +48,7 @@ function handlePointDrag(
 
       return {
         ...company,
-        ability: adabteRange(ability),
+        ability: 100 - adabteRange(ability),
         vision: adabteRange(vision),
       };
     }
